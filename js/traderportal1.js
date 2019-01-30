@@ -271,7 +271,7 @@ stock_action = async function(buttonId) {
 				showNotif('INSUFFICIENT CASH BALANCE !');
         return;
 		}
-    if (parseFloat(price) > upper_ckt || parseFloat(price) < lower_ckt) {
+    if ( price > upper_ckt || price < lower_ckt) {
         showNotif('PRICE EXCEEDS ±20% !');
         return;
     }
