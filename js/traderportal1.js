@@ -4,13 +4,13 @@
 
 
 var country_data = {
-    "AUSTRALIA": ["ANZ", "BHP", "KAS", "NAB", "TELS"],
-    "ENGLAND": ["BCL", "BAR", "DAG", "TSCO", "VODA"],
-    "USA": ["APPL", "TSLA", "GOOG", "MSFT", "NVDA"],
-    "INDIA": ["INFY", "SUNPHARMA", "YESBANK", "RIL", "EICHERMOT"],
-    "CHINA": ["ALI", "THL", "SHIC", "BYD", "XOMI"],
-    "GERMANY": ["TKA", "DBK", "SIEM", "CON", "BMW"],
-    "JAPAN": ["NPS", "KMC", "SMC", "SOFT", "SONY"]
+    "AUSTRALIA": ["ANZ","BHP","KAS","NAB","TELS"],
+    "UK": ["VODA","TESCO","BARC","DIA","BAE"],
+    "USA": ["GOOGL","APPL", "MSFT","TSLA","NVDA"],
+    "INDIA": ["INFY","RIL","SUN","YES","EICHER"],
+    "CHINA": ["ALI","TEN", "SANY", "BYD","XIAOMI"],
+    "GERMANY": ["THYK", "DBK","SIE","BMW","CON"],
+    "JAPAN": ["SOFT","SONY","NIPPO","TOY","SMC"]
 };
 var apiCall_List= [];
 var apiWrite_Sheet = "";
@@ -280,9 +280,7 @@ stock_action = async function(buttonId) {
         // The ID of the spreadsheet to retrieve data from.
         spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
         // The A1 notation of the values to retrieve.
-        range: apiWrite_Sheet, // CHANGE EVERY ROUND
-			  // range: 'TestUIn2!A2'
-			  //  range: 'TestUIn3!A2'
+        range: apiWrite_Sheet, // CHANGES EVERY ROUND
         // How the input data should be interpreted.
         valueInputOption: 'USER_ENTERED', // TODO: Update placeholder value.
     };
@@ -310,7 +308,6 @@ stock_action = async function(buttonId) {
                 showNotif(buttonId + ' ORDER SUCCESFUL');
 								await makeApiCall();
 							  await putCountryData();
-							  //await showPort();
             } else {
                 showNotif('! TRY AGAIN !');
 							  showPort();
