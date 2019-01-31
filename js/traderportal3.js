@@ -4,7 +4,7 @@
 
 
 var country_data = {
-    "AUSTRALIA": ["ANZ", "BHP", "KAS", "KRMB", "TELS"],
+    "AUSTRALIA": ["ANZ", "BHP", "KAS", "NAB", "TELS"],
     "ENGLAND": ["BCL", "BAR", "DAG", "TSCO", "VODA"],
     "USA": ["APPL", "TSLA", "GOOG", "MSFT", "NVDA"],
     "INDIA": ["INFY", "SUNPHARMA", "YESBANK", "RIL", "EICHERMOT"],
