@@ -104,9 +104,10 @@ function getTeamData() { //Google sheets api
         cell3 = row.insertCell(2);
 				cell3.innerHTML = teams_table_list[k][8];
         cell4 = row.insertCell(3);
-        cell4.innerHTML = teams_table_list[k][2];
+				var score = Math.round(parseFloat(teams_table_list[k][2]) * 100) / 100;
+        cell4.innerHTML = score;
         row_count += 1;
-        if( row_count == 13){
+        if( row_count == 12){
           break;
         }
     }
