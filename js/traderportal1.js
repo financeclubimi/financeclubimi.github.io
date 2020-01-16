@@ -128,7 +128,8 @@ putCountryData = function() {
     //change to putTeamData 
     team_id = document.getElementById('team_id').value;
     country_name = document.getElementById('country_name').value;
-    Team name & Balance cash_balance = Math.round(team_data[team_id][8] * 100) / 100;
+    //Team name & Balance 
+    cash_balance = Math.round(team_data[team_id][8] * 100) / 100;
     document.getElementById('team_name').innerHTML = team_data[team_id][1];
     document.getElementById('team_balance').innerHTML = cash_balance;
     main_content = document.getElementById('main');
