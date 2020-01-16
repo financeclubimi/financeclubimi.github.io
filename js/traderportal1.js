@@ -200,7 +200,8 @@ function updateMarketPrice() {
         //TODO: Update placeholder value.
     };
     var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
-    to read data request.then(function(response) {
+    //to read data 
+    request.then(function(response) {
         var stockId = document.getElementById('main').value;
         if (response.status == 200 && response.result.valueRanges[0] != null) {
             shares = response.result.valueRanges[0].values;
@@ -225,7 +226,7 @@ stock_action = async function(buttonId) {
     var teamId = document.getElementById('team_id').value;
     var country = document.getElementById('country_name').value;
     var stockId = document.getElementById('main').value;
-    main - > stock ID
+    //main - > stock ID
     var qty = parseInt(document.getElementById('quantity').value);
     var price = Math.round(parseFloat(document.getElementById('price').value) * 100) / 100;
     var trx_value = qty * price;
