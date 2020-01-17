@@ -167,7 +167,8 @@ function makeApiCall() { //Google sheets api
                 valueRenderOption: 'UNFORMATTED_VALUE',
                 // TODO: Update placeholder value. // How dates, times, and durations should be represented in the output. // This is ignored if value_render_option is 
                 // FORMATTED_VALUE. // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER]. 
-                dateTimeRenderOption: 'FORMATTED_STRING', // TODO: Update placeholder value.}; 
+                dateTimeRenderOption: 'FORMATTED_STRING', // TODO: Update placeholder value.
+        }; 
                 var request = gapi.client.sheets.spreadsheets.values.batchGet(params); // to read data 
             request.then(function(response){
                 var stockId = document.getElementById('main').value;
@@ -217,8 +218,10 @@ stock_action = async function(buttonId) {
             var params = { // The ID of the spreadsheet to retrieve data from. 
                 spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
                 // The A1 notation of the values to retrieve. range: apiWrite_Sheet, // CHANGES EVERY ROUND 
-                // How the input data should be interpreted. valueInputOption: 'USER_ENTERED', 
-                // TODO: Update placeholder value.}; 
+                // How the input data should be interpreted. 
+                valueInputOption: 'USER_ENTERED', 
+                // TODO: Update placeholder value.
+            }; 
                 if (buttonId == "BUY") {
                     var valueRangeBody = {
                         "values": [
