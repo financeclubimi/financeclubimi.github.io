@@ -93,7 +93,8 @@ function makeApiCall() { //Google sheets api
         //ranges: ['Stock_Names', 'Stock_Prices', 'PortfolioR3', 'TeamScoresR3'], // For ROund3 // The default render option is ValueRenderOption.FORMATTED_VALUE. 
         valueRenderOption: 'UNFORMATTED_VALUE', // TODO: Update placeholder value. // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER]. 
         dateTimeRenderOption: 'FORMATTED_STRING',
-        // TODO: Update placeholder value.}; 
+        // TODO: Update placeholder value.
+    }; 
         var request = gapi.client.sheets.spreadsheets.values.batchGet(params); // to read data 
         return new Promise((resolve, reject) => {
             request.then(function(response) {
