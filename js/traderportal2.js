@@ -168,7 +168,8 @@ function makeApiCall() { //Google sheets api
                 // TODO: Update placeholder value. // How dates, times, and durations should be represented in the output. // This is ignored if value_render_option is 
                 // FORMATTED_VALUE. // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER]. 
                 dateTimeRenderOption: 'FORMATTED_STRING', // TODO: Update placeholder value.}; 
-                var request = gapi.client.sheets.spreadsheets.values.batchGet(params); // to read data request.then(function(response){
+                var request = gapi.client.sheets.spreadsheets.values.batchGet(params); // to read data 
+            request.then(function(response){
                 var stockId = document.getElementById('main').value;
                 if (response.status == 200 && response.result.valueRanges[0] != null) {
                     shares = response.result.valueRanges[0].values; // refreshed values of stocks 
