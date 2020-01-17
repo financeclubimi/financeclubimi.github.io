@@ -53,8 +53,8 @@ function handleSignInClick(event) {
 
 function handleSignOutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
-} //new additionfunction 
-setSheets() {
+} //new addition
+function setSheets() {
     var round = document.getElementById('round').value;
     switch (parseInt(round)) {
         case 1:
