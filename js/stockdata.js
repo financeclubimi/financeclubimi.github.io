@@ -16,8 +16,10 @@ var refreshIntervalId2 = 0;
 
 function initClient() {
     var API_KEY = 'AIzaSyA16qFTzT3YFBt1dWKnhvBYLQ8F0E-ZCrA';
-    TODO: Update placeholder with desired API key.var CLIENT_ID = '640886712280-1s9dj5rprihdgouqo3r2cd663ougcetq.apps.googleusercontent.com';
-    TODO: Update placeholder with desired client ID.var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+    //TODO: Update placeholder with desired API key.
+    var CLIENT_ID = '640886712280-1s9dj5rprihdgouqo3r2cd663ougcetq.apps.googleusercontent.com';
+    //TODO: Update placeholder with desired client ID.
+    var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
     gapi.client.init({
         'apiKey': API_KEY,
         'clientId': CLIENT_ID,
@@ -48,16 +50,19 @@ function handleSignOutClick(event) {
 }
 
 function makeApiCall() {
-    Google sheets api
+    //Google sheets api
     var params = {
-        The ID of the spreadsheet to retrieve data from.spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
-        The A1 notation of the values to retrieve.ranges: ['Stock_Prices'],
-        How values should be represented in the output.The
-        default render option is ValueRenderOption.FORMATTED_VALUE.valueRenderOption: 'UNFORMATTED_VALUE',
-        TODO: Update placeholder value.
+        //The ID of the spreadsheet to retrieve data from.
+        spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
+        //The A1 notation of the values to retrieve.
+        ranges: ['Stock_Prices'],
+        //How values should be represented in the output.The
+        //default render option is ValueRenderOption.FORMATTED_VALUE.
+        valueRenderOption: 'UNFORMATTED_VALUE',
+        //TODO: Update placeholder value.
     };
     var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
-    to read data
+    //to read data
     return new Promise((resolve, reject) => {
         request.then(function(response) {
             console.log(response.result);
