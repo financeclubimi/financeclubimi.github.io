@@ -242,6 +242,11 @@ stock_action = async function(buttonId) {
         showNotif('INSUFFICIENT CASH BALANCE !');
         return;
     }
+    //Added to check whether trx value is -ve
+    if ((trx_value < 0)) {
+        showNotif('Invalid quantity Added');
+        return;
+    }
     if (price > upper_ckt || price < lower_ckt) {
         showNotif('PRICE EXCEEDS ±20% !');
         return;
