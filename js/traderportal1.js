@@ -239,19 +239,6 @@ stock_action = async function(buttonId) {
         return;
     }
     
-    //Added for quantity check
-    if(buttonId == "SELL"){
-        main_p = document.getElementById('main_p');
-        var stock_count = 0;
-        for (var k = 1; k < portfolio_data.length; k += 1) {
-        if (portfolio_data[k][0] == stockId) {
-            if(portfolio_data[k][1] < qty){
-                showNotif('Cannot sell as quantity exceeds');
-                return;
-            }          
-        }
-        }
-    }
     
     if ((trx_value > cash_balance) && buttonId == "BUY") {
         showNotif('INSUFFICIENT CASH BALANCE !');
@@ -271,6 +258,20 @@ stock_action = async function(buttonId) {
       valueInputOption: 'USER_ENTERED',
         //TODO: Update placeholder value.
     };
+     //Added for quantity check
+    if(buttonId == "SELL"){
+        await makeApiCall();
+        main_p = document.getElementById('main_p');
+        for (var k = 1; k < portfolio_data.length; k += 1) {
+        if (portfolio_data[k][1] == stockId) {
+            if(portfolio_data[k][2] < qty){
+                showNotif('Cannot sell as quantity exceeds');
+                return;
+            }          
+        }
+        }
+    }
+    
     if (buttonId == "BUY") {
         var valueRangeBody = {
             "values": [
