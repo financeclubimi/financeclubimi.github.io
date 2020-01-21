@@ -1,4 +1,4 @@
-/** * Trading portal for trader 4 */
+/** * Trading portal for trader 3 */
 var country_data = {
     "AUSTRALIA": ["ANZ", "BHP", "KSC", "NAB", "TEL"],
     "UK": ["VODA", "TESCO", "BARC", "DIA", "BAE"],
@@ -86,9 +86,7 @@ function setSheets() {
 function makeApiCall() { //Google sheets api 
     var params = { // The ID of the spreadsheet to retrieve data from. 
         spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ', // The A1 notation of the values to retrieve. 
-        ranges: apiCall_List, //
-        ranges: ['Stock_Names', 'Stock_Prices', 'PortfolioR2', 'TeamScoresR2'], // For ROund2 //
-        ranges: ['Stock_Names', 'Stock_Prices', 'PortfolioR3', 'TeamScoresR3'], // For ROund3 // The default render option is ValueRenderOption.FORMATTED_VALUE. 
+        ranges: apiCall_List, //ranges: ['Stock_Names','Stock_Prices','PortfolioR2','TeamScoresR2'], // For ROund2 //ranges: ['Stock_Names','Stock_Prices','PortfolioR3','TeamScoresR3'], // For ROund3 // The default render option is ValueRenderOption.FORMATTED_VALUE. 
         valueRenderOption: 'UNFORMATTED_VALUE', // TODO: Update placeholder value. // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER]. 
         dateTimeRenderOption: 'FORMATTED_STRING', // TODO: Update placeholder value.
     };
