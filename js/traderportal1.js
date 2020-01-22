@@ -260,8 +260,8 @@ stock_action = async function(buttonId) {
     };
      //Added for quantity check
     if(buttonId == "SELL"){
-        await makeApiCall();
-        main_p = document.getElementById('main_p');
+        //await makeApiCall();
+        //main_p = document.getElementById('main_p');
         for (var k = 1; k < portfolio_data.length; k += 1) {
         if (portfolio_data[k][1] == stockId) {
             if(portfolio_data[k][2] < qty){
