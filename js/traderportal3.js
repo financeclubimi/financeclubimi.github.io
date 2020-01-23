@@ -204,25 +204,24 @@ stock_action = async function(buttonId) {
         showNotif('PRICE EXCEEDS ±20% !');
         return;
     }
+     //Added for quantity check
+    if(buttonId == "SELL"){
+        //await makeApiCall();
+        //main_p = document.getElementById('main_p');
+        for (var k = 1; k < portfolio_data.length; k += 1) {
+        if (portfolio_data[k][1] == stockId && portfolio_data[k][2] < qty) {
+                showNotif('Cannot sell as quantity exceeds');
+                return;
+        }
+        }
+    }
     showNotif('PLACING ' + buttonId + ' ORDER');
     var params = { // The ID of the spreadsheet to retrieve data from. 
         spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ', // The A1 notation of the values to retrieve. 
         range: apiWrite_Sheet, // CHANGES EVERY ROUND // How the input data should be interpreted. 
         valueInputOption: 'USER_ENTERED', // TODO: Update placeholder value.
     };
-         //Added for quantity check
-    if(buttonId == "SELL"){
-        await makeApiCall();
-        main_p = document.getElementById('main_p');
-        for (var k = 1; k < portfolio_data.length; k += 1) {
-        if (portfolio_data[k][1] == stockId) {
-            if(portfolio_data[k][2] < qty){
-                showNotif('Cannot sell as quantity exceeds');
-                return;
-            }          
-        }
-        }
-    }
+    
     if (buttonId == "BUY") {
         var valueRangeBody = {
             "values": [
