@@ -1,4 +1,4 @@
-/** * Trading portal for trader 4 */
+/** * Trading portal for trader 1 */
 var country_data = {
     "AUSTRALIA": ["ANZ", "BHP", "KSC", "NAB", "TEL"],
     "UK": ["VODA", "TESCO", "BARC", "DIA", "BAE"],
@@ -21,8 +21,10 @@ var cash_balance;
 var stk_price = 0;
 
 function initClient() {
-    var API_KEY = 'AIzaSyA16qFTzT3YFBt1dWKnhvBYLQ8F0E-ZCrA'; // TODO: Update placeholder with desired API key. 
-    var CLIENT_ID = '640886712280-1s9dj5rprihdgouqo3r2cd663ougcetq.apps.googleusercontent.com'; // TODO: Update placeholder with desired client ID. 
+    var API_KEY = 'AIzaSyA16qFTzT3YFBt1dWKnhvBYLQ8F0E-ZCrA';
+    //TODO: Update placeholder with desired API key.//
+    var CLIENT_ID = '640886712280-1s9dj5rprihdgouqo3r2cd663ougcetq.apps.googleusercontent.com';
+    //TODO: Update placeholder with desired client ID.//
     var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
     gapi.client.init({
         'apiKey': API_KEY,
@@ -51,7 +53,8 @@ function handleSignInClick(event) {
 
 function handleSignOutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
-} //new addition
+}
+//new addition
 function setSheets() {
     var round = document.getElementById('round').value;
     switch (parseInt(round)) {
@@ -83,14 +86,24 @@ function setSheets() {
     }
 }
 
-function makeApiCall() { //Google sheets api 
-    var params = { // The ID of the spreadsheet to retrieve data from. 
-        spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ', // The A1 notation of the values to retrieve. 
-        ranges: apiCall_List, //ranges: ['Stock_Names','Stock_Prices','PortfolioR2','TeamScoresR2'], // For ROund2 //ranges: ['Stock_Names','Stock_Prices','PortfolioR3','TeamScoresR3'], // For ROund3 // The default render option is ValueRenderOption.FORMATTED_VALUE. 
-        valueRenderOption: 'UNFORMATTED_VALUE', // TODO: Update placeholder value. // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER]. 
-        dateTimeRenderOption: 'FORMATTED_STRING', // TODO: Update placeholder value.
+function makeApiCall() {
+    //Google sheets api//
+    var params = {
+        //The ID of the spreadsheet to retrieve data from.//
+        spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
+        //The A1 notation of the values to retrieve.//
+        ranges: apiCall_List,
+        //ranges: ['Stock_Names', 'Stock_Prices', 'PortfolioR2', 'TeamScoresR2'],
+        // For ROund2 ranges: ['Stock_Names', 'Stock_Prices', 'PortfolioR3', 'TeamScoresR3'],
+        // For ROund3 The default render option is ValueRenderOption.FORMATTED_VALUE.
+        valueRenderOption: 'UNFORMATTED_VALUE',
+        //TODO: Update placeholder value.The
+        //default dateTime render option is[DateTimeRenderOption.SERIAL_NUMBER].
+        dateTimeRenderOption: 'FORMATTED_STRING',
+        //TODO: Update placeholder value.
     };
-    var request = gapi.client.sheets.spreadsheets.values.batchGet(params); // to read data 
+    var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
+    //to read data
     return new Promise((resolve, reject) => {
         request.then(function(response) {
             console.log(response.result);
@@ -111,9 +124,11 @@ function makeApiCall() { //Google sheets api
 putTeamData = function() {
     hidePort();
 };
-putCountryData = function() { //change to putTeamData 
+putCountryData = function() {
+    //change to putTeamData 
     team_id = document.getElementById('team_id').value;
-    country_name = document.getElementById('country_name').value; // Team name & Balance 
+    country_name = document.getElementById('country_name').value;
+    //Team name & Balance 
     cash_balance = Math.round(team_data[team_id][8] * 100) / 100;
     document.getElementById('team_name').innerHTML = team_data[team_id][1];
     document.getElementById('team_balance').innerHTML = cash_balance;
@@ -151,20 +166,46 @@ function showPort() {
 
 function hidePort() {
     document.getElementById('portfolio-popup').style.display = 'none';
-} /*function refreshTeamData(){//write to sheets api var xhttp=new XMLHttpRequest(); xhttp.onreadystatechange=function(){if (this.readyState==4 && this.status==200){team_data=JSON.parse(this.responseText);}}xhttp.open("GET", "/teamdata", true); xhttp.send();}*/
-function updateMarketPrice() { //Google sheets api 
-    shares = [];
-    var params = { // The ID of the spreadsheet to retrieve data from. 
-        spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ', // The A1 notation of the values to retrieve. 
-        ranges: ['Stock_Prices'], // TODO: Update placeholder value. // How values should be represented in the output. // The default render option is ValueRenderOption.FORMATTED_VALUE. 
-        valueRenderOption: 'UNFORMATTED_VALUE', // TODO: Update placeholder value. // How dates, times, and durations should be represented in the output. // This is ignored if value_render_option is // FORMATTED_VALUE. // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER]. 
-        dateTimeRenderOption: 'FORMATTED_STRING', // TODO: Update placeholder value.
+}
+
+function refreshTeamData() {
+    //write to sheets api
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            team_data = JSON.parse(this.responseText);
+        }
+    }
+    xhttp.open("GET", "/teamdata", true);
+    xhttp.send();
+}
+
+function updateMarketPrice() {
+    //Google sheets api 
+  shares = [];
+    var params = {
+        //The ID of the spreadsheet to retrieve data from.
+      spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
+        //The A1 notation of the values to retrieve.
+      ranges: ['Stock_Prices'],
+        //TODO: Update placeholder value.How values should be represented in the output.The
+        //default render option is ValueRenderOption.FORMATTED_VALUE.
+      valueRenderOption: 'UNFORMATTED_VALUE',
+        //TODO: Update placeholder value.How dates,
+        //times,
+        //and durations should be represented in the output.This is ignored
+        //if value_render_option is FORMATTED_VALUE.The
+        //default dateTime render option is[DateTimeRenderOption.SERIAL_NUMBER].
+      dateTimeRenderOption: 'FORMATTED_STRING',
+        //TODO: Update placeholder value.
     };
-    var request = gapi.client.sheets.spreadsheets.values.batchGet(params); // to read data 
+    var request = gapi.client.sheets.spreadsheets.values.batchGet(params);
+    //to read data 
     request.then(function(response) {
         var stockId = document.getElementById('main').value;
         if (response.status == 200 && response.result.valueRanges[0] != null) {
-            shares = response.result.valueRanges[0].values; // refreshed values of stocks 
+            shares = response.result.valueRanges[0].values;
+            //refreshed values of stocks
             for (var k = 1; k < shares.length; k += 1) {
                 if (shares[k][0] == stockId) {
                     max_stk_qty = shares[k][5];
@@ -184,7 +225,8 @@ function updateMarketPrice() { //Google sheets api
 stock_action = async function(buttonId) {
     var teamId = document.getElementById('team_id').value;
     var country = document.getElementById('country_name').value;
-    var stockId = document.getElementById('main').value; //main-> stock ID 
+    var stockId = document.getElementById('main').value;
+    //main - > stock ID
     var qty = parseInt(document.getElementById('quantity').value);
     var price = Math.round(parseFloat(document.getElementById('price').value) * 100) / 100;
     var trx_value = qty * price;
@@ -196,6 +238,8 @@ stock_action = async function(buttonId) {
         showNotif('INCORRECT ORDER AMOUNT !');
         return;
     }
+    
+    
     if ((trx_value > cash_balance) && buttonId == "BUY") {
         showNotif('INSUFFICIENT CASH BALANCE !');
         return;
@@ -216,12 +260,17 @@ stock_action = async function(buttonId) {
         }
     }
     showNotif('PLACING ' + buttonId + ' ORDER');
-    var params = { // The ID of the spreadsheet to retrieve data from. 
-        spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ', // The A1 notation of the values to retrieve. 
-        range: apiWrite_Sheet, // CHANGES EVERY ROUND // How the input data should be interpreted. 
-        valueInputOption: 'USER_ENTERED', // TODO: Update placeholder value.
+    var params = {
+        //The ID of the spreadsheet to retrieve data from.
+      spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
+        //The A1 notation of the values to retrieve.
+      range: apiWrite_Sheet,
+        //CHANGES EVERY ROUND How the input data should be interpreted.
+      valueInputOption: 'USER_ENTERED',
+        //TODO: Update placeholder value.
     };
-
+    
+    
     if (buttonId == "BUY") {
         var valueRangeBody = {
             "values": [
