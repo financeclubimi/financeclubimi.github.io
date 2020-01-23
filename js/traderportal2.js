@@ -249,7 +249,7 @@ stock_action = async function(buttonId) {
         return;
     }
      //Added for quantity check
-    if(buttonId == "SELL"){
+    /*if(buttonId == "SELL"){
         //await makeApiCall();
         //main_p = document.getElementById('main_p');
         for (var k = 1; k < portfolio_data.length; k += 1) {
@@ -258,7 +258,7 @@ stock_action = async function(buttonId) {
                 return;
         }
         }
-    }
+    }*/
     showNotif('PLACING ' + buttonId + ' ORDER');
     var params = {
         //The ID of the spreadsheet to retrieve data from.
