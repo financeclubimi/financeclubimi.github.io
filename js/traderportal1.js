@@ -249,16 +249,20 @@ stock_action = async function(buttonId) {
         return;
     }
      //Added for quantity check
-    if(buttonId == "SELL"){
+    /*if(buttonId == "SELL"){
         //await makeApiCall();
         //main_p = document.getElementById('main_p');
-        for (var k = 1; k < portfolio_data.length; k += 1) {
+        if
+        {
+        team_id == portfolio_data[1][0]
+        for (var k = 1; k <6; k += 1) {
         if (portfolio_data[k][1] == stockId && portfolio_data[k][2] < qty) {
                 showNotif('Cannot sell as quantity exceeds');
                 return;
         }
         }
-    }
+        }
+    }*/
     showNotif('PLACING ' + buttonId + ' ORDER');
     var params = {
         //The ID of the spreadsheet to retrieve data from.
