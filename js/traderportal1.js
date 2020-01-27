@@ -4,7 +4,7 @@ var country_data = {
     "UK": ["LLOY", "BP", "AZN", "BARC", "BRBY"],
     "USA": ["AMZN", "UNH", "AAPL", "F", "BA"],
     "INDIA": ["BPCL", "RIL", "VOD", "HDFC", "TATAMOTORS"],
-    "CHINA": ["PTR", "ABC", "CSEC", "CSSC", "ALI"],
+    "CHINA": ["PTR", "ABC", "XIACF", "BABA", "ALI"],
     "GERMANY": ["SAP", "SIE", "ADS", "VOW", "TVAG"],
     "FRANCE": ["FP.PA", "SAN", "LVMH", "BNP", "UG"]
 };
