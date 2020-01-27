@@ -1,11 +1,11 @@
 /** * Trading portal for trader 1 */
 var country_data = {
-    "AUSTRALIA": ["ANZ", "BHP", "KSC", "NAB", "TEL"],
+    "AUSTRALIA": ["BHP", "CSL", "RIO", "IRE", "CBA"],
     "UK": ["VODA", "TESCO", "BARC", "DIA", "BAE"],
     "USA": ["GOOGL", "MSFT", "APPL", "NVDA", "TSLA"],
     "INDIA": ["BPCL", "RIL", "VOD", "HDFC", "TATAMOTORS"],
     "CHINA": ["ALI", "TEN", "SANY", "BYD", "XIAOMI"],
-    "GERMANY": ["THYK", "DBK", "SIE", "BMW", "CON"],
+    "GERMANY": ["SAP", "SIE", "ADS", "VOW", "TVAG"],
     "JAPAN": ["SOFT", "SONY", "NIPPO", "TOY", "SMC"]
 };
 var apiCall_List = [];
