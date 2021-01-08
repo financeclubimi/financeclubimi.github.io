@@ -48,7 +48,7 @@ function handleSignOutClick(event) {
 function getTeamData() { //Google sheets api
     var params = {
         // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
+        spreadsheetId: '1SxurCAqA6BTYQ6BEi0zc4BiokvMxTpVs_NMEl1Wn1dQ',
         // The A1 notation of the values to retrieve.
         ranges: ['TeamScoresR1','TeamScoresR2','TeamScoresR3','TeamScoresR4'],   
 
