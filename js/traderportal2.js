@@ -90,7 +90,7 @@ function makeApiCall() {
     //Google sheets api//
     var params = {
         //The ID of the spreadsheet to retrieve data from.//
-        spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
+        spreadsheetId: '1SxurCAqA6BTYQ6BEi0zc4BiokvMxTpVs_NMEl1Wn1dQ',
         //The A1 notation of the values to retrieve.//
         ranges: apiCall_List,
         //ranges: ['Stock_Names', 'Stock_Prices', 'PortfolioR2', 'TeamScoresR2'],
@@ -185,7 +185,7 @@ function updateMarketPrice() {
   shares = [];
     var params = {
         //The ID of the spreadsheet to retrieve data from.
-      spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
+      spreadsheetId: '1SxurCAqA6BTYQ6BEi0zc4BiokvMxTpVs_NMEl1Wn1dQ',
         //The A1 notation of the values to retrieve.
       ranges: ['Stock_Prices'],
         //TODO: Update placeholder value.How values should be represented in the output.The
