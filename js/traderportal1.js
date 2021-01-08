@@ -266,7 +266,7 @@ stock_action = async function(buttonId) {
     showNotif('PLACING ' + buttonId + ' ORDER');
     var params = {
         //The ID of the spreadsheet to retrieve data from.
-      spreadsheetId: '11hJrOFXSRW0a7Nmfbi9yfQUfl6-kmTscyYOc-29w8gQ',
+      spreadsheetId: '1SxurCAqA6BTYQ6BEi0zc4BiokvMxTpVs_NMEl1Wn1dQ',
         //The A1 notation of the values to retrieve.
       range: apiWrite_Sheet,
         //CHANGES EVERY ROUND How the input data should be interpreted.
